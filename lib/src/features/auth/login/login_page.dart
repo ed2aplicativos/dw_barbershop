@@ -21,13 +21,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   final passwordEC = TextEditingController();
 
   @override
-  void initState() {
-    emailEC.text = 'teste@teste.com';
-    passwordEC.text = '123456';
-    super.initState();
-  }
-
-  @override
   void dispose() {
     emailEC.dispose();
     passwordEC.dispose();

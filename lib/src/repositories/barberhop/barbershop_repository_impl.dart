@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import '../../core/fp/nil.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/exceptions/repository_exception.dart';
 import '../../core/fp/either.dart';
+import '../../core/fp/nil.dart';
 import '../../core/restClient/rest_client.dart';
 import '../../model/barbershop_model.dart';
 import '../../model/user_model.dart';

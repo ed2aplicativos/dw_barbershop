@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/ui/widgets/hours_panel.dart';
 import '../../../../core/ui/widgets/week_days_panel.dart';
 
 class BarbershopRegisterPage extends StatelessWidget {
@@ -33,9 +34,9 @@ class BarbershopRegisterPage extends StatelessWidget {
               const SizedBox(height: 24),
               const WeekDaysPanel(),
               const SizedBox(height: 24),
-              const SizedBox(
-                height: 178,
-                child: Placeholder(),
+              const HoursPanel(
+                startTime: 6,
+                endTime: 23,
               ),
               const SizedBox(height: 24),
               ElevatedButton(

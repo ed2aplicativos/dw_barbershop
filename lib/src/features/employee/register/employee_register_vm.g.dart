@@ -7,7 +7,7 @@ part of 'employee_register_vm.dart';
 // **************************************************************************
 
 String _$employeeRegisterVmHash() =>
-    r'77f8e55b31e6254c4d56c0ac0af7677c96bf524d';
+    r'ff7b53b6679857d49b3ecbc19e4c0e9b9299e5e6';
 
 /// See also [EmployeeRegisterVm].
 @ProviderFor(EmployeeRegisterVm)

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/providers/application_providers.dart';
 import '../../../core/ui/barbershop_icons.dart';
 import '../../../core/ui/constants.dart';
+import '../../../core/ui/helpers/form_helper.dart';
 import '../../../core/ui/widgets/barbershop_loader.dart';
 import '../adm/home_adm_vm.dart';
 
@@ -113,6 +114,7 @@ class HomeHeader extends ConsumerWidget {
           Offstage(
             offstage: hideFilter,
             child: TextFormField(
+              onTapOutside: (_) => context.unfocus(),
               decoration: const InputDecoration(
                 label: Text(
                   'Buscar Colaborador',

@@ -1,4 +1,5 @@
 import 'package:asyncstate/widget/async_state_builder.dart';
+import 'package:de_barbsershop/src/features/employee/register/employee_register_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/ui/barbershop_nav_global_key.dart';
@@ -31,6 +32,7 @@ class BarbershopApp extends StatelessWidget {
             '/auth/register/barbershop': (_) => const BarbershopRegisterPage(),
             '/home/adm': (_) => const HomeAdmPage(),
             '/home/employee': (_) => const Text('Employee'),
+            '/employee/register': (_) => const EmployeeRegisterPage(),
           },
         );
       },

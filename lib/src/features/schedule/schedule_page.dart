@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -8,16 +9,17 @@ import '../../core/ui/helpers/form_helper.dart';
 import '../../core/ui/helpers/messages.dart';
 import '../../core/ui/widgets/avatar_widget.dart';
 import '../../core/ui/widgets/hours_panel.dart';
+import 'schedule_vm.dart';
 import 'widgets/schedule_calendar.dart';
 
-class SchedulePage extends StatefulWidget {
+class SchedulePage extends ConsumerStatefulWidget {
   const SchedulePage({super.key});
 
   @override
-  State<SchedulePage> createState() => _SchedulePageState();
+  ConsumerState<SchedulePage> createState() => _SchedulePageState();
 }
 
-class _SchedulePageState extends State<SchedulePage> {
+class _SchedulePageState extends ConsumerState<SchedulePage> {
   var dateFormat = DateFormat('dd/MM/yyyy');
   var showCalendar = false;
   final formKey = GlobalKey<FormState>();
@@ -33,6 +35,7 @@ class _SchedulePageState extends State<SchedulePage> {
 
   @override
   Widget build(BuildContext context) {
+    final scheduleVM = ref.watch(scheduleVmProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Agendar cliente'),
@@ -96,6 +99,7 @@ class _SchedulePageState extends State<SchedulePage> {
                           okPressed: (DateTime value) {
                             setState(() {
                               dateEC.text = dateFormat.format(value);
+                              scheduleVM.daySelect(value);
                               showCalendar = false;
                             });
                           },
@@ -107,7 +111,7 @@ class _SchedulePageState extends State<SchedulePage> {
                   HoursPanel.singleSelection(
                     startTime: 6,
                     endTime: 23,
-                    onHourPressed: (e) {},
+                    onHourPressed: scheduleVM.hourSelect,
                     enabledTimes: const [6, 7, 8],
                   ),
                   const SizedBox(height: 32),
@@ -119,7 +123,16 @@ class _SchedulePageState extends State<SchedulePage> {
                         case null || false:
                           Messages.showError('Dados Incompletos', context);
                         case true:
-                        // Chamada do VM
+                          // chama VM
+                          final hourSelected = ref.watch(scheduleVmProvider
+                              .select((state) => state.scheduleHour != null));
+                          if (hourSelected) {
+                            //register
+                          } else {
+                            Messages.showError(
+                                'Por favor selecione um horário de atendimento',
+                                context);
+                          }
                       }
                     },
                     child: const Text(

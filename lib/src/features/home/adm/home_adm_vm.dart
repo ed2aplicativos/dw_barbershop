@@ -1,6 +1,6 @@
 import 'package:asyncstate/asyncstate.dart';
-import 'package:de_barbsershop/src/core/fp/either.dart';
-import 'package:de_barbsershop/src/core/providers/application_providers.dart';
+import '../../../core/fp/either.dart';
+import '../../../core/providers/application_providers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../model/barbershop_model.dart';

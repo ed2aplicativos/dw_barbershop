@@ -22,6 +22,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   void initState() {
+    emailEC.text = 'colabteste@gmail.com';
+    passwordEC.text = '123123';
     super.initState();
   }
 

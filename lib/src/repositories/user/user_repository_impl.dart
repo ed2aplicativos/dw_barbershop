@@ -137,7 +137,7 @@ class UserRepositoryImpl implements UserRepository {
         'email': userModel.email,
         'password': userModel.password,
         'barbershop_id': userModel.barbershopId,
-        'profile': ' EMPLOYEE',
+        'profile': 'EMPLOYEE',
         'work_days': userModel.workDays,
         'work_hours': userModel.workHours,
       });
